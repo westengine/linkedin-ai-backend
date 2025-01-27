@@ -10,7 +10,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = create_app(os.getenv("FLASK_CONFIG") or "default")
-cli = FlaskGroup(app)
+# cli = FlaskGroup(app)
 
 if __name__ == "__main__":
-    cli()
+    app.run(host="0.0.0.0", port=5000)
+
+print(app.url_map)
